@@ -14,9 +14,9 @@ const BirthdayCard = () => {
     setIsOpen(true);
     triggerConfetti();
     audioRef.current.loop = true;
-    // audioRef.current
-    //   .play()
-    //   .catch((error) => console.log('Audio play failed:', error));
+    audioRef.current
+      .play()
+      .catch((error) => console.log('Audio play failed:', error));
   };
 
   const triggerConfetti = () => {
