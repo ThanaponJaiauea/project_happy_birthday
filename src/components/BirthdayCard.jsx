@@ -2,13 +2,20 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Heart, Star, Sparkles } from 'lucide-react';
+import hbdSound from '../assets/video/HBD.mp3';
+import ImageGallery from './ImageGallery';
 
 const BirthdayCard = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const audioRef = React.useRef(new Audio(hbdSound));
 
   const handleOpen = () => {
     setIsOpen(true);
     triggerConfetti();
+    audioRef.current.loop = true;
+    audioRef.current
+      .play()
+      .catch((error) => console.log('Audio play failed:', error));
   };
 
   const triggerConfetti = () => {
@@ -59,9 +66,9 @@ const BirthdayCard = () => {
               <Heart className="text-pink-500 w-24 h-24 fill-current" />
             </motion.div>
             <h1 className="text-4xl font-bold text-white drop-shadow-md font-serif">
-              For Auntie
+              For Pornthip
             </h1>
-            <p className="text-white/90 text-lg">
+            <p className="text-pink-400/90 text-lg">
               Click to open your surprise!
             </p>
           </motion.div>
@@ -91,17 +98,57 @@ const BirthdayCard = () => {
                 Happy Birthday!
               </h1>
 
-              <div className="space-y-4 text-gray-700 leading-relaxed font-medium">
-                <p>To the most amazing Aunt in the world,</p>
-                <p>
+              <ImageGallery />
+
+              <motion.div
+                className="space-y-4 text-gray-700 leading-relaxed font-medium"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 1.5, delayChildren: 0.5 },
+                  },
+                }}
+              >
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+                  }}
+                >
+                  To the most amazing Aunt in the world,
+                </motion.p>
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+                  }}
+                >
                   Thank you for your endless love, support, and warmth. You make
                   every day brighter just by being you.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+                  }}
+                >
                   Wishing you a day filled with joy, laughter, and everything
                   you love.
-                </p>
-              </div>
+                </motion.p>
+
+                <motion.p
+                  className="text-[14px] text-end"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+                  }}
+                >
+                  By Ham
+                </motion.p>
+              </motion.div>
 
               <div className="pt-4">
                 <motion.button

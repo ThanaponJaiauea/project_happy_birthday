@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -27,7 +26,7 @@ const BackgroundEffects = () => {
             duration: 10,
             repeat: Infinity,
             delay: balloon.delay,
-            ease: "linear",
+            ease: 'linear',
           }}
         >
           {/* Balloon string */}
@@ -53,7 +52,7 @@ const BackgroundEffects = () => {
           transition={{
             duration: Math.random() * 3 + 2,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         />
       ))}
