@@ -65,13 +65,11 @@ const BirthdayCard = () => {
               <Heart className="text-pink-500 w-24 h-24 fill-current" />
             </motion.div>
 
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
               Happy Birthday For Pornthip
             </h1>
 
-            <div className="scale-75">
-              <Cake onClick={handleOpen} />
-            </div>
+            <Cake onClick={handleOpen} />
           </motion.div>
         ) : (
           <motion.div
